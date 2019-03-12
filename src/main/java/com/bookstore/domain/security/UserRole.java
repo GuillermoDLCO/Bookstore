@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.bookstore.domain.User;
 
 @Entity
@@ -16,7 +18,7 @@ import com.bookstore.domain.User;
 public class UserRole {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long userRole;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -26,6 +28,8 @@ public class UserRole {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="role_id")
 	private Role role;
+	
+	public UserRole() {}
 	
 	public UserRole(User user, Role role) {
 		this.user=user;

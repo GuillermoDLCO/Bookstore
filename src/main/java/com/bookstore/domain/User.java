@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,8 +26,9 @@ public class User implements UserDetails{
 	//Definiendo los campos
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable = false, updatable = false)
+	private Long id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -41,10 +43,10 @@ public class User implements UserDetails{
 	@JsonIgnore
 	private Set<UserRole> userRoles=new HashSet<>();
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUsername() {
