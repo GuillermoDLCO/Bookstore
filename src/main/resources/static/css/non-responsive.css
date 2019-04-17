@@ -51,7 +51,10 @@ body,
   /*border: 1px solid #ddd;*/
   /*border: 1px solid rgba(86,61,124,.2);*/
 }
-
+.col-xs-8 {
+  padding-bottom:15px;
+  padding-top:15px;
+}
 .container .navbar-header,
 .container .navbar-collapse {
   margin-right: 0;
